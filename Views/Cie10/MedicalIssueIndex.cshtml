@@ -1,0 +1,72 @@
+﻿@model CIE.WebApp.Models.ViewModels.Cie10ViewModel
+
+@{
+    ViewBag.Title = "Cie10Catalog";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <form asp-controller="Cie10" asp-action="MedicalIssueIndex" method="get">
+        <div class="row row-cols-auto">
+            <div class="col col-5">
+                <label class="form-label" asp-for="Codigo">Codigo Enfermedad</label>
+                <input type="text" class="form-control" asp-for="Codigo"/>
+            </div>
+            <div class="col col-5">
+                <label class="form-label" asp-for="Nombre">Descripcion</label>
+                <input type="text" class="form-control" asp-for="Nombre" />
+            </div>
+        </div>
+        <div class="row row-cols-auto">
+            <div class="col col-5">
+                <select asp-for="Sexo" class="form-select form-select-sm mb-3 mt-3" aria-label=".form-select-lg example">
+                    <option selected>select ....</option>
+                    <option value="A">Ambos</option>
+                    <option value="M">Hombre</option>
+                    <option value="F">Mujer</option>
+                </select>
+            </div>
+@*             <div class="col col-5">
+                <select asp-for="ClaveCategoria" class="form-select form-select-sm mb-3 mt-3" aria-label=".form-select-lg example">
+                    <option selected>select ....</option>
+                    <option value="A">Ambos</option>
+                    <option value="M">Hombre</option>
+                    <option value="F">Mujer</option>
+                </select>
+            </div> *@
+        </div>
+        <div class="col justify-content-end mt-4 mb-3">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </div>
+
+
+    </form>
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Descripcion</th>
+                <th>Sexo</th>
+                <th>Catalogo</th>
+                <th>Clave Categoria</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var medicalIssue in Model.Cie10)
+            {
+                <tr>
+                    <th>@medicalIssue.Codigo</th>
+                    <th>@medicalIssue.Nombre</th>
+                    <th>@medicalIssue.Sexo</th>
+                    <th>@medicalIssue.Catalogo</th>
+                    <th>@medicalIssue.ClaveCategoria</th>
+                    <th></th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

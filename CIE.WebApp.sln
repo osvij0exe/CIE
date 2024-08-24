@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIE.WebApp", "CIE.WebApp.csproj", "{04DFBD5B-9B05-4CA0-9C05-7C02FACAD0A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIE.NUnit.Test", "..\CIE.NUnit.Test\CIE.NUnit.Test.csproj", "{A822D9CF-62EB-4266-A1B7-AA202D20093F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04DFBD5B-9B05-4CA0-9C05-7C02FACAD0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DFBD5B-9B05-4CA0-9C05-7C02FACAD0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DFBD5B-9B05-4CA0-9C05-7C02FACAD0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DFBD5B-9B05-4CA0-9C05-7C02FACAD0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A822D9CF-62EB-4266-A1B7-AA202D20093F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A822D9CF-62EB-4266-A1B7-AA202D20093F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A822D9CF-62EB-4266-A1B7-AA202D20093F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A822D9CF-62EB-4266-A1B7-AA202D20093F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {546C62E0-68C6-4529-AF1E-8CB1F185D50A}
+	EndGlobalSection
+EndGlobal

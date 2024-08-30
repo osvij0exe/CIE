@@ -48,7 +48,7 @@ namespace CIE.WebApp.Services.Implementacion
 
         }
 
-        public async Task<PaginationBaseResponse<Cie10ResponseDto>> MedicalIssueListAsync(string? code, string? descripcion, string? sexo, string? claveCategoria, int page = 1, int rows = 50)
+        public async Task<PaginationBaseResponse<Cie10ResponseDto>> MedicalIssueListAsync(string? code, string? descripcion, string? sexo, string? claveCategoria, int page = 1, int rows = 10)
         {
             var response = new PaginationBaseResponse<Cie10ResponseDto>();
 

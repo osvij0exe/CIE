@@ -1,8 +1,18 @@
-﻿@model CIE.WebApp.Models.ViewModels.Cie10ViewModel
+﻿@using CIE.WebApp.Models.ViewModels
+@model CIE.WebApp.Models.ViewModels.Cie10SearchModel
 
 @{
-    ViewBag.Title = "Cie10Catalog";
+    ViewBag.Title = "MedicalIssueIndex";
     Layout = "_Layout";
+    PaginationData pager = new PaginationData();
+
+    int pageNo = 0;
+    
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
 }
 
 <div class="container">
@@ -10,17 +20,17 @@
         <div class="row row-cols-auto">
             <div class="col col-5">
                 <label class="form-label" asp-for="Codigo">Codigo Enfermedad</label>
-                <input type="text" class="form-control" asp-for="Codigo"/>
+                <input type="text" class="form-control" asp-for="Codigo" value="@ViewBag.Code" />
             </div>
             <div class="col col-5">
                 <label class="form-label" asp-for="Nombre">Descripcion</label>
-                <input type="text" class="form-control" asp-for="Nombre" />
+                <input type="text" class="form-control" asp-for="Nombre" value="@ViewBag.Nombre" />
             </div>
         </div>
         <div class="row row-cols-auto">
             <div class="col col-5">
-                <select asp-for="Sexo" class="form-select form-select-sm mb-3 mt-3" aria-label=".form-select-lg example">
-                    <option selected>select ....</option>
+                <select asp-for="Sexo" name="Sexo" value="@ViewBag.Sexo" class="form-select form-select-sm mb-3 mt-3" aria-label=".form-select-lg example">
+                    <option selected >select ....</option>
                     <option value="A">Ambos</option>
                     <option value="M">Hombre</option>
                     <option value="F">Mujer</option>
@@ -69,4 +79,60 @@
         </tbody>
     </table>
 
+</div>
+
+
+<div class="container">
+    @if(pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+
+            @if(pager.CurrentPage > 1)
+            {
+                <li clas="page-item">
+                    <a class="page-link" asp-controller="Cie10" asp-action="MedicalIssueIndex" 
+                    asp-route-pg="1"
+                    asp-route-Codigo="@Model.Codigo"
+                    asp-route-Nombre="@Model.Nombre"
+                    asp-route-Sexo="@Model.Sexo">First</a>
+                </li>
+                <li clas="page-item">
+                    <a class="page-link" asp-controller="Cie10" asp-action="MedicalIssueIndex" 
+                    asp-route-pg="@(pager.CurrentPage -1)" 
+                    asp-route-Codigo="@Model.Codigo"
+                    asp-route-Nombre="@Model.Nombre" 
+                    asp-route-Sexo="@Model.Sexo">Previous</a>
+                </li>
+            }
+
+
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="Cie10" asp-action="MedicalIssueIndex" 
+                    asp-route-pg="@pge"
+                    asp-route-Codigo="@Model.Codigo"
+                    asp-route-Nombre="@Model.Nombre" 
+                    asp-route-Sexo="@Model.Sexo"> @pge </a>
+                </li>
+            }
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Cie10" asp-action="MedicalIssueIndex" 
+                    asp-route-pg="@(pager.CurrentPage +1)"
+                    asp-route-Codigo="@Model.Codigo"
+                    asp-route-Nombre="@Model.Nombre" 
+                    asp-route-Sexo="@Model.Sexo">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Cie10" asp-action="MedicalIssueIndex" 
+                    asp-route-pg="@(pager.TotalPages)"
+                    asp-route-Codigo="@Model.Codigo"
+                    asp-route-Nombre="@Model.Nombre" 
+                    asp-route-Sexo="@Model.Sexo">Last</a>
+                </li>
+            }
+        </ul>
+    }
 </div>

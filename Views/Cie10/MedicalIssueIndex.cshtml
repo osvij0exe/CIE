@@ -20,18 +20,18 @@
         <div class="row row-cols-auto">
             <div class="col col-5">
                 <label class="form-label" asp-for="Codigo">Codigo Enfermedad</label>
-                <input type="text" class="form-control" asp-for="Codigo" value="@ViewBag.Code" />
+                <input type="text" class="form-control" asp-for="Codigo" name="Codigo" value="@ViewBag.Code" />
             </div>
             <div class="col col-5">
                 <label class="form-label" asp-for="Nombre">Descripcion</label>
-                <input type="text" class="form-control" asp-for="Nombre" value="@ViewBag.Nombre" />
+                <input type="text" class="form-control" asp-for="Nombre" name="Nombre" value="@ViewBag.Nombre" />
             </div>
         </div>
         <div class="row row-cols-auto">
             <div class="col col-5">
+                <label class="form-label" asp-for="Sexo">Seleccione una opcion</label>
                 <select asp-for="Sexo" name="Sexo" value="@ViewBag.Sexo" class="form-select form-select-sm mb-3 mt-3" aria-label=".form-select-lg example">
-                    <option selected >select ....</option>
-                    <option value="A">Ambos</option>
+                    <option selected value="A" >Ambos</option>
                     <option value="M">Hombre</option>
                     <option value="F">Mujer</option>
                 </select>
